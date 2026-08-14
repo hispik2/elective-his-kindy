@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Elective HIS NORTH CAMPUS</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f6f9;
+padding:20px;
+}
+
+
+.logo{
+text-align:center;
+}
+
+.logo img{
+width:110px;
+margin-bottom:-20px;
+}
+
+
+.container{
+max-width:600px;
+background:white;
+padding:25px;
+margin:auto;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+
+h2,h3{
+text-align:center;
+}
+
+
+input,button{
+
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:6px;
+border:1px solid #ccc;
+
+}
+
+
+button{
+
+background:#0066cc;
+color:white;
+border:none;
+cursor:pointer;
+
+}
+
+
+button:hover{
+
+background:#004999;
+
+}
+
+
+.hidden{
+display:none;
+}
+
+
+
+.welcome{
+
+margin-top:15px;
+padding:12px;
+background:#e8f5e9;
+color:green;
+border-radius:6px;
+
+}
+
+
+.error{
+color:red;
+}
+
+
+.elective-item{
+
+border:1px solid #ddd;
+padding:15px;
+margin-top:10px;
+border-radius:8px;
+background:#fafafa;
+
+}
+
+
+.elective-item:hover{
+
+background:#eef7ff;
+
+}
+
+
+.elective-item input{
+
+width:auto;
+margin-right:10px;
+
+}
+
+
+
+.summary{
+
+margin-top:15px;
+padding:15px;
+background:#fff3cd;
+border-radius:8px;
+
+}
+
+
+
+.payment{
+
+margin-top:20px;
+padding:20px;
+background:#eef7ff;
+border-radius:8px;
+
+}
+
+
+
+.upload-btn{
+
+display:block;
+padding:12px;
+background:#28a745;
+color:white;
+text-align:center;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+
+}
+
+
+.upload-btn:hover{
+
+background:#218838;
+
+}
+
+
+.success{
+
+color:green;
+text-align:center;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container" id="mainContainer">
+
+
+<div class="logo">
+
+<img src="https://lh3.googleusercontent.com/d/1IiZ9rKHMOz4VA8Llou67FCBgP7J7Jl16">
+
+</div>
+
+
+
+<h2>
+HIS NORTH CAMPUS ELECTIVE REGISTRATION
+</h2>
+
+
+
+<input
+
+type="email"
+
+id="email"
+
+placeholder="Enter student email"
+
+oninput="checkEmail()"
+
+>
+
+
+
+<div id="welcome"></div>
+
+
+
+
+<div id="formElective" class="hidden">
+
+
+<h3>
+Choose Elective Classes
+</h3>
+
+
+<div id="listElective"></div>
+
+
+
+<div id="summary"
+class="summary">
+
+</div>
+
+
+
+
+<button onclick="submitForm()">
+
+Submit Selection
+
+</button>
+
+
+
+
+
+<div id="paymentSection"
+class="payment hidden">
+
+
+<h3>
+PAYMENT
+</h3>
+
+
+<p>
+Transfer to CIMB Bank
+</p>
+
+
+
+<h2 id="totalBayar"></h2>
+
+
+
+
+<label class="upload-btn">
+
+Upload Proof of Transfer
+
+
+<input
+
+type="file"
+
+id="bukti"
+
+accept="image/*,.pdf"
+
+hidden
+
+>
+
+
+</label>
+
+
+
+<p id="fileName"></p>
+
+
+
+<button onclick="uploadBukti()">
+
+Submit Payment
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbx4dgoLzrxi1mLkueFi1ZhLG87YuwukzZn2_TwpiSIVIvemxHicn9Tgy0PxrJjAisMu/exec";
+
+
+let students={
+
+
+"aishleen.horas@student.hisedu.sch.id":
+"Aishleen Charlotte Horas",
+
+"arsenio.januar@student.hisedu.sch.id":
+"Arsenio Baskoro Januar",
+
+"axton.horas@student.hisedu.sch.id":
+"Axton Cyrill Horas",
+
+"emery.budiputra@student.hisedu.sch.id":
+"Emery Gale Budiputra",
+
+"frances.maryalle@student.hisedu.sch.id":
+"Frances Ruby Maryalle",
+
+"garnet.odilia@student.hisedu.sch.id":
+"Garnet Odilia",
+
+"jaden.kavinsky@student.hisedu.sch.id":
+"Jaden Marvel Kavinsky",
+
+"leonel.sjaichudin@student.hisedu.sch.id":
+"Leonel Jonathan Sjaichudin",
+
+"megeve.ho@student.hopeacademy.sch.id":
+"Megeve Ho",
+
+"miranda.tedjadinata@student.hisedu.sch.id":
+"Miranda Chelsea Tedjadinata",
+
+"mordekhai.ihsan@student.hisedu.sch.id":
+"Mordekhai Oliver Ihsan",
+
+"sean.tjandra@student.hisedu.sch.id":
+"Sean Raphael Tjandra",
+
+"venezia.luis@student.hisedu.sch.id":
+"Venezia Adeline Luis",
+
+"maoqi.wang@student.hisedu.sch.id":
+"Wang Maoqi",
+
+"yoseline.trusulo@student.hisedu.sch.id":
+"Yoseline Ifeya Faith Trusulo",
+
+"adeline.chandra@student.hisedu.sch.id":
+"Adeline Florencia Chandra",
+
+"callia.rose@student.hisedu.sch.id":
+"Callia Avery Rose",
+
+"celine.widjaja@student.hisedu.sch.id":
+"Celine Renna Widjaja",
+
+"celine.gozali@student.hisedu.sch.id":
+"Celine Zefanya Gozali",
+
+"chloe.wynne@student.hisedu.sch.id":
+"Chloe Eleanor Wynne",
+
+"ecclesie.kartadjaja@student.hisedu.sch.id":
+"Ecclesie Philea Kartadjaja",
+
+"elsheena.daniella@student.hisedu.sch.id":
+"Elsheena Sharon Daniella",
+
+"elyse.lynn@student.hisedu.sch.id":
+"Elyse Lynn",
+
+"ethan.tjoe@student.hisedu.sch.id":
+"Ethan Edvard Tjoe",
+
+"felicia.tung@student.hisedu.sch.id":
+"Felicia Lexi Tung",
+
+"gavin.anggriawan@student.hisedu.sch.id":
+"Gavin Zeke Anggriawan",
+
+"lucas.kusuma@student.hisedu.sch.id":
+"Lucas Kusuma",
+
+"raphael.susindra@student.hisedu.sch.id":
+"Raphael Arthur Susindra",
+
+};
+
+
+
+let electives={};
+
+let selectedClasses=[];
+
+let currentStudent="";
+
+let currentEmail="";
+
+
+
+
+
+function checkEmail(){
+
+
+let email =
+document.getElementById("email")
+.value
+.toLowerCase();
+
+
+
+if(students[email]){
+
+
+currentEmail=email;
+
+currentStudent=students[email];
+
+
+
+document.getElementById("welcome").innerHTML=
+
+`
+<div class="welcome">
+
+✅ Welcome <b>${currentStudent}</b>
+
+</div>
+
+`;
+
+
+
+document
+.getElementById("formElective")
+.classList
+.remove("hidden");
+
+
+
+loadElectives();
+
+
+
+}
+
+else{
+
+
+document.getElementById("welcome").innerHTML=
+
+`
+<p class="error">
+❌ Email not registered
+</p>
+`;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+async function loadElectives(){
+
+
+try{
+
+
+let response =
+await fetch(SCRIPT_URL);
+
+
+
+let data =
+await response.json();
+
+
+
+electives={};
+
+
+
+let box =
+document.getElementById("listElective");
+
+
+box.innerHTML="";
+
+
+
+data.forEach(e=>{
+
+
+electives[e.name]=e;
+
+
+
+box.innerHTML +=
+
+
+`
+
+<div class="elective-item">
+
+
+<label>
+
+
+<input
+
+type="checkbox"
+
+value="${e.name}"
+
+onchange="toggleClass(this)"
+
+>
+
+
+<b>${e.name}</b>
+
+
+<br>
+
+📅 ${e.day}
+
+
+<br>
+
+⏰ ${e.time}
+
+
+<br>
+
+💰 Rp ${e.price.toLocaleString()}
+
+
+<br>
+
+Remaining:
+${e.remaining}
+
+
+</label>
+
+
+</div>
+
+`;
+
+
+
+});
+
+
+
+updateSummary();
+
+
+
+}
+
+catch(error){
+
+
+alert(
+"Cannot load elective data"
+);
+
+
+console.log(error);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+function isConflict(newClass){
+
+
+let newData =
+electives[newClass];
+
+
+
+for(let oldClass of selectedClasses){
+
+
+let oldData =
+electives[oldClass];
+
+
+
+if(newData.day == oldData.day){
+
+
+
+let n =
+newData.time.split("-");
+
+let o =
+oldData.time.split("-");
+
+
+
+if(
+n[0] < o[1] &&
+n[1] > o[0]
+){
+
+return true;
+
+}
+
+
+}
+
+
+}
+
+
+
+return false;
+
+
+}
+
+
+
+
+
+
+
+
+function toggleClass(cb){
+
+
+let value =
+cb.value;
+
+
+
+if(cb.checked){
+
+
+
+if(isConflict(value)){
+
+
+alert(
+"⚠️ Schedule conflict!"
+);
+
+
+
+cb.checked=false;
+
+
+return;
+
+
+}
+
+
+
+selectedClasses.push(value);
+
+
+
+}
+
+else{
+
+
+selectedClasses =
+selectedClasses.filter(
+x=>x!==value
+);
+
+
+}
+
+
+
+updateSummary();
+
+
+}
+
+
+
+
+
+
+
+
+
+function updateSummary(){
+
+
+let total=0;
+
+
+selectedClasses.forEach(c=>{
+
+
+if(electives[c]){
+
+total+=electives[c].price;
+
+}
+
+
+});
+
+
+
+document.getElementById("summary").innerHTML=
+
+`
+
+<b>
+Selected:
+${selectedClasses.length}
+</b>
+
+<br>
+
+<b>
+Total:
+Rp ${total.toLocaleString()}
+</b>
+
+`;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+async function submitForm(){
+
+
+
+if(selectedClasses.length==0){
+
+
+alert(
+"Please select elective class"
+);
+
+
+return;
+
+}
+
+
+
+let total=0;
+
+
+
+selectedClasses.forEach(c=>{
+
+total+=electives[c].price;
+
+});
+
+
+
+
+let data={
+
+
+action:"registration",
+
+name:currentStudent,
+
+email:currentEmail,
+
+classes:selectedClasses.join(", "),
+
+total:total
+
+
+};
+
+
+
+try{
+
+
+let response =
+await fetch(
+
+SCRIPT_URL,
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"text/plain;charset=utf-8"
+
+},
+
+body:JSON.stringify(data)
+
+}
+
+);
+
+
+
+let result =
+await response.text();
+
+
+
+console.log(result);
+
+
+
+alert(
+"Selection Saved"
+);
+
+
+
+document
+.getElementById("paymentSection")
+.classList
+.remove("hidden");
+
+
+
+document
+.getElementById("totalBayar")
+.innerHTML=
+
+"Rp "+total.toLocaleString();
+
+
+
+}
+
+catch(error){
+
+
+alert(
+"Submit failed"
+);
+
+
+console.log(error);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+document
+.getElementById("bukti")
+.onchange=function(){
+
+
+document
+.getElementById("fileName")
+.innerHTML=
+
+"Selected: <b>"+
+this.files[0].name+
+"</b>";
+
+
+};
+
+
+
+
+
+
+
+
+
+function uploadBukti(){
+
+
+let file =
+document.getElementById("bukti");
+
+
+
+if(file.files.length==0){
+
+
+alert(
+"Please upload proof of transfer"
+);
+
+
+return;
+
+}
+
+
+
+let reader =
+new FileReader();
+
+
+
+reader.onload=function(){
+
+
+
+let data={
+
+
+action:"payment",
+
+name:currentStudent,
+
+email:currentEmail,
+
+fileName:file.files[0].name,
+
+fileType:file.files[0].type,
+
+fileData:
+reader.result.split(",")[1]
+
+
+};
+
+
+
+fetch(
+
+SCRIPT_URL,
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"text/plain;charset=utf-8"
+
+},
+
+body:JSON.stringify(data)
+
+}
+
+);
+
+
+
+document.getElementById("mainContainer").innerHTML=
+
+`
+
+<h2 class="success">
+
+✅ Payment Submitted Successfully
+
+</h2>
+
+
+<p style="text-align:center">
+
+HIS Admin will verify your payment. Thank You.
+
+</p>
+
+
+`;
+
+
+
+};
+
+
+
+reader.readAsDataURL(
+file.files[0]
+);
+
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
