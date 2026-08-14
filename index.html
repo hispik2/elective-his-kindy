@@ -4,175 +4,324 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Elective HIS NORTH CAMPUS</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>HIS NORTH CAMPUS ELECTIVE</title>
 
 <style>
 
 *{
-box-sizing:border-box;
+    box-sizing:border-box;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#f4f6f9;
-padding:20px;
+
+    font-family:Arial,sans-serif;
+
+    background:#f4f6f9;
+
+    padding:20px;
+
+    margin:0;
+
 }
 
+.container{
+
+    max-width:600px;
+
+    background:white;
+
+    padding:25px;
+
+    margin:auto;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+
+}
 
 .logo{
-text-align:center;
+
+    text-align:center;
+
 }
 
 .logo img{
-width:110px;
-margin-bottom:-20px;
-}
 
+    width:110px;
 
-.container{
-max-width:600px;
-background:white;
-padding:25px;
-margin:auto;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,.15);
-}
-
-
-h2,h3{
-text-align:center;
-}
-
-
-input,button{
-
-width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:6px;
-border:1px solid #ccc;
+    margin-bottom:5px;
 
 }
 
+h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+h3{
+
+    text-align:center;
+
+}
+
+input,
+button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:10px;
+
+    border-radius:6px;
+
+    border:1px solid #ccc;
+
+}
 
 button{
 
-background:#0066cc;
-color:white;
-border:none;
-cursor:pointer;
+    background:#0066cc;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
 
 }
-
 
 button:hover{
 
-background:#004999;
+    background:#004999;
 
 }
 
+button:disabled{
+
+    background:#999;
+
+    cursor:not-allowed;
+
+}
 
 .hidden{
-display:none;
+
+    display:none;
+
 }
-
-
 
 .welcome{
 
-margin-top:15px;
-padding:12px;
-background:#e8f5e9;
-color:green;
-border-radius:6px;
+    margin-top:15px;
+
+    padding:12px;
+
+    background:#e8f5e9;
+
+    color:green;
+
+    border-radius:6px;
 
 }
-
 
 .error{
-color:red;
+
+    color:red;
+
 }
 
+.loading{
+
+    text-align:center;
+
+    padding:20px;
+
+}
 
 .elective-item{
 
-border:1px solid #ddd;
-padding:15px;
-margin-top:10px;
-border-radius:8px;
-background:#fafafa;
+    border:1px solid #ddd;
+
+    padding:15px;
+
+    margin-top:10px;
+
+    border-radius:8px;
+
+    background:#fafafa;
 
 }
-
 
 .elective-item:hover{
 
-background:#eef7ff;
+    background:#eef7ff;
 
 }
 
+.elective-item.full{
+
+    background:#f8d7da;
+
+    border-color:#f5c2c7;
+
+}
+
+.elective-item.registered{
+
+    background:#e2e3e5;
+
+    border-color:#ccc;
+
+}
 
 .elective-item input{
 
-width:auto;
-margin-right:10px;
+    width:auto;
+
+    margin-right:10px;
 
 }
 
+.class-name{
 
+    font-size:16px;
+
+}
+
+.vendor{
+
+    margin-top:5px;
+
+    color:#555;
+
+    font-size:14px;
+
+}
+
+.remaining{
+
+    margin-top:5px;
+
+    font-weight:bold;
+
+}
 
 .summary{
 
-margin-top:15px;
-padding:15px;
-background:#fff3cd;
-border-radius:8px;
+    margin-top:15px;
+
+    padding:15px;
+
+    background:#fff3cd;
+
+    border-radius:8px;
 
 }
 
+.summary-title{
 
+    font-weight:bold;
+
+    font-size:17px;
+
+    margin-bottom:10px;
+
+}
+
+.summary-item{
+
+    padding:8px 0;
+
+    border-bottom:1px solid #eadca8;
+
+}
+
+.summary-total{
+
+    margin-top:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
 
 .payment{
 
-margin-top:20px;
-padding:20px;
-background:#eef7ff;
-border-radius:8px;
+    margin-top:20px;
+
+    padding:20px;
+
+    background:#eef7ff;
+
+    border-radius:8px;
 
 }
-
-
 
 .upload-btn{
 
-display:block;
-padding:12px;
-background:#28a745;
-color:white;
-text-align:center;
-border-radius:6px;
-cursor:pointer;
-margin-top:10px;
+    display:block;
+
+    padding:12px;
+
+    background:#28a745;
+
+    color:white;
+
+    text-align:center;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    margin-top:10px;
 
 }
-
 
 .upload-btn:hover{
 
-background:#218838;
+    background:#218838;
 
 }
-
 
 .success{
 
-color:green;
-text-align:center;
+    color:green;
+
+    text-align:center;
 
 }
 
+.info{
+
+    margin-top:15px;
+
+    padding:12px;
+
+    background:#e8f5e9;
+
+    border-radius:8px;
+
+}
+
+.already{
+
+    color:#666;
+
+    font-size:13px;
+
+    margin-top:5px;
+
+}
 
 </style>
 
@@ -192,11 +341,13 @@ text-align:center;
 </div>
 
 
-
 <h2>
-HIS NORTH CAMPUS ELECTIVE REGISTRATION
-</h2>
 
+HIS NORTH CAMPUS ELECTIVE<br>
+
+REGISTRATION
+
+</h2>
 
 
 <input
@@ -207,70 +358,87 @@ id="email"
 
 placeholder="Enter student email"
 
-oninput="checkEmail()"
+autocomplete="off"
 
 >
 
 
-
 <div id="welcome"></div>
-
-
 
 
 <div id="formElective" class="hidden">
 
 
 <h3>
+
 Choose Elective Classes
+
 </h3>
 
 
-<div id="listElective"></div>
-
-
-
-<div id="summary"
-class="summary">
+<div id="listElective">
 
 </div>
 
 
+<div id="summary"
+
+class="summary">
+
+No class selected.
+
+</div>
 
 
-<button onclick="submitForm()">
+<button
+
+id="submitButton"
+
+onclick="submitForm()">
 
 Submit Selection
 
 </button>
 
 
+<div id="resultSummary">
 
+</div>
 
 
 <div id="paymentSection"
+
 class="payment hidden">
 
 
 <h3>
+
 PAYMENT
+
 </h3>
 
 
 <p>
+
 Transfer to CIMB Bank
+
 </p>
 
 
+<h2 id="totalBayar">
 
-<h2 id="totalBayar"></h2>
+</h2>
 
 
+<label
 
+class="upload-btn"
 
-<label class="upload-btn">
+for="bukti">
 
 Upload Proof of Transfer
+
+</label>
 
 
 <input
@@ -286,43 +454,49 @@ hidden
 >
 
 
-</label>
-
-
-
 <p id="fileName"></p>
 
 
+<button
 
-<button onclick="uploadBukti()">
+id="paymentButton"
+
+onclick="uploadBukti()">
 
 Submit Payment
 
 </button>
 
 
-
-</div>
-
-
-</div>
+<div id="paymentInfo"></div>
 
 
 </div>
 
 
+</div>
 
+
+</div>
 
 
 <script>
 
 
+// =====================================================
+// SCRIPT URL
+// =====================================================
+
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbx4dgoLzrxi1mLkueFi1ZhLG87YuwukzZn2_TwpiSIVIvemxHicn9Tgy0PxrJjAisMu/exec";
+
+"https://script.google.com/macros/s/AKfycbwh2Ns-2BoZHU2KK9YNADFii9CyoN5DhfYpyTvaNQvS5dmhwGV1HDwvM1YJnGsCaWQt/exec";
 
 
-let students={
+// =====================================================
+// STUDENT DATA
+// =====================================================
 
+const students = {
 
 "aishleen.horas@student.hisedu.sch.id":
 "Aishleen Charlotte Horas",
@@ -406,650 +580,1272 @@ let students={
 "Lucas Kusuma",
 
 "raphael.susindra@student.hisedu.sch.id":
-"Raphael Arthur Susindra",
+"Raphael Arthur Susindra"
 
 };
 
 
+// =====================================================
+// VARIABLES
+// =====================================================
 
-let electives={};
+let electives = {};
 
-let selectedClasses=[];
+let selectedClasses = [];
 
-let currentStudent="";
+let registeredClasses = [];
 
-let currentEmail="";
+let currentStudent = "";
+
+let currentEmail = "";
+
+let loadedEmail = "";
+
+let registrationId = "";
 
 
+// =====================================================
+// EMAIL INPUT
+// =====================================================
+
+let emailTimer = null;
 
 
+document
+.getElementById("email")
+.addEventListener("input", function(){
+
+    clearTimeout(emailTimer);
+
+    emailTimer = setTimeout(
+        checkEmail,
+        400
+    );
+
+});
+
+
+// =====================================================
+// CHECK EMAIL
+// =====================================================
 
 function checkEmail(){
 
-
-let email =
-document.getElementById("email")
-.value
-.toLowerCase();
-
-
-
-if(students[email]){
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim()
+        .toLowerCase();
 
 
-currentEmail=email;
+    if(!email){
 
-currentStudent=students[email];
+        document
+        .getElementById("welcome")
+        .innerHTML = "";
 
+        return;
 
-
-document.getElementById("welcome").innerHTML=
-
-`
-<div class="welcome">
-
-✅ Welcome <b>${currentStudent}</b>
-
-</div>
-
-`;
+    }
 
 
+    if(!students[email]){
 
-document
-.getElementById("formElective")
-.classList
-.remove("hidden");
+        document
+        .getElementById("welcome")
+        .innerHTML =
+
+        `<p class="error">
+        ❌ Email not registered
+        </p>`;
+
+        return;
+
+    }
 
 
+    currentEmail = email;
 
-loadElectives();
+    currentStudent =
+        students[email];
 
 
+    document
+    .getElementById("welcome")
+    .innerHTML =
+
+    `<div class="welcome">
+    ✅ Welcome <b>${currentStudent}</b>
+    </div>`;
+
+
+    document
+    .getElementById("formElective")
+    .classList
+    .remove("hidden");
+
+
+    // =============================================
+    // HANYA LOAD SEKALI UNTUK EMAIL INI
+    // =============================================
+
+    if(
+        loadedEmail !== email
+    ){
+
+        loadedEmail = email;
+
+        selectedClasses = [];
+
+        loadElectives();
+
+    }
 
 }
 
-else{
 
-
-document.getElementById("welcome").innerHTML=
-
-`
-<p class="error">
-❌ Email not registered
-</p>
-`;
-
-}
-
-
-}
-
-
-
-
-
-
-
+// =====================================================
+// LOAD ELECTIVES
+// =====================================================
 
 async function loadElectives(){
 
+    const box =
+        document.getElementById(
+            "listElective"
+        );
 
-try{
 
+    box.innerHTML =
 
-let response =
-await fetch(SCRIPT_URL);
+    `<div class="loading">
+    Loading elective classes...
+    </div>`;
 
 
+    try{
 
-let data =
-await response.json();
+        const url =
+            SCRIPT_URL +
+            "?email=" +
+            encodeURIComponent(
+                currentEmail
+            );
 
 
+        const response =
+            await fetch(
+                url,
+                {
+                    method:"GET",
+                    cache:"no-store"
+                }
+            );
 
-electives={};
 
+        const text =
+            await response.text();
 
 
-let box =
-document.getElementById("listElective");
+        let data;
 
 
-box.innerHTML="";
+        try{
 
+            data =
+                JSON.parse(text);
 
+        }
 
-data.forEach(e=>{
+        catch(err){
 
+            throw new Error(
+                "Server tidak mengembalikan JSON."
+            );
 
-electives[e.name]=e;
+        }
 
 
+        if(!data.ok){
 
-box.innerHTML +=
+            throw new Error(
+                data.error ||
+                "Tidak dapat mengambil data elective."
+            );
 
+        }
 
-`
 
-<div class="elective-item">
+        electives = {};
 
 
-<label>
+        registeredClasses =
+            data.registeredClasses || [];
 
 
-<input
+        data.electives.forEach(
+            function(e){
 
-type="checkbox"
+                electives[e.name] = e;
 
-value="${e.name}"
+            }
+        );
 
-onchange="toggleClass(this)"
 
->
+        renderElectives();
 
+        updateSummary();
 
-<b>${e.name}</b>
 
+    }
 
-<br>
+    catch(error){
 
-📅 ${e.day}
+        console.error(error);
 
 
-<br>
+        box.innerHTML =
 
-⏰ ${e.time}
+        `<div class="error">
+        ❌ Cannot load elective data.<br>
+        ${error.message}
+        </div>`;
 
-
-<br>
-
-💰 Rp ${e.price.toLocaleString()}
-
-
-<br>
-
-Remaining:
-${e.remaining}
-
-
-</label>
-
-
-</div>
-
-`;
-
-
-
-});
-
-
-
-updateSummary();
-
-
-
-}
-
-catch(error){
-
-
-alert(
-"Cannot load elective data"
-);
-
-
-console.log(error);
-
+    }
 
 }
 
 
+// =====================================================
+// RENDER ELECTIVES
+// =====================================================
+
+function renderElectives(){
+
+    const box =
+        document.getElementById(
+            "listElective"
+        );
+
+
+    box.innerHTML = "";
+
+
+    Object.values(electives)
+    .forEach(function(e){
+
+        const isRegistered =
+            registeredClasses.some(
+                function(c){
+
+                    return normalize(c) ===
+                           normalize(e.name);
+
+                }
+            );
+
+
+        const isFull =
+            Number(e.remaining) <= 0;
+
+
+        const disabled =
+            isRegistered ||
+            isFull;
+
+
+        let vendorHTML = "";
+
+
+        if(e.vendor){
+
+            vendorHTML =
+
+            `<div class="vendor">
+            👤 Vendor / Coach: <b>${escapeHtml(e.vendor)}</b>
+            </div>`;
+
+        }
+
+
+        let remainingText;
+
+
+        if(isRegistered){
+
+            remainingText =
+                `<div class="already">
+                ✅ Already registered
+                </div>`;
+
+        }
+
+        else if(isFull){
+
+            remainingText =
+                `<div class="remaining error">
+                Remaining: 0 — FULL
+                </div>`;
+
+        }
+
+        else{
+
+            remainingText =
+                `<div class="remaining">
+                Remaining: ${e.remaining}
+                </div>`;
+
+        }
+
+
+        box.innerHTML +=
+
+        `
+
+        <div class="elective-item
+            ${isFull ? "full" : ""}
+            ${isRegistered ? "registered" : ""}
+        ">
+
+
+        <label>
+
+
+        <input
+
+        type="checkbox"
+
+        value="${escapeAttr(e.name)}"
+
+        ${disabled ? "disabled" : ""}
+
+        onchange="toggleClass(this)"
+
+        >
+
+
+        <b class="class-name">
+
+        ${escapeHtml(e.name)}
+
+        </b>
+
+
+        <br>
+
+
+        📅 ${escapeHtml(e.day)}
+
+
+        <br>
+
+
+        ⏰ ${escapeHtml(e.time)}
+
+
+        <br>
+
+
+        💰 Rp ${formatNumber(e.price)}
+
+
+        ${vendorHTML}
+
+
+        ${remainingText}
+
+
+        </label>
+
+
+        </div>
+
+        `;
+
+    });
+
 }
 
 
-
-
-
-
-
-
-
-function isConflict(newClass){
-
-
-let newData =
-electives[newClass];
-
-
-
-for(let oldClass of selectedClasses){
-
-
-let oldData =
-electives[oldClass];
-
-
-
-if(newData.day == oldData.day){
-
-
-
-let n =
-newData.time.split("-");
-
-let o =
-oldData.time.split("-");
-
-
-
-if(
-n[0] < o[1] &&
-n[1] > o[0]
-){
-
-return true;
-
-}
-
-
-}
-
-
-}
-
-
-
-return false;
-
-
-}
-
-
-
-
-
-
-
+// =====================================================
+// TOGGLE CLASS
+// =====================================================
 
 function toggleClass(cb){
 
-
-let value =
-cb.value;
-
+    const value =
+        cb.value;
 
 
-if(cb.checked){
+    if(cb.checked){
+
+        if(
+            isConflict(value)
+        ){
+
+            alert(
+                "⚠️ Schedule conflict!"
+            );
 
 
+            cb.checked = false;
 
-if(isConflict(value)){
+            return;
 
-
-alert(
-"⚠️ Schedule conflict!"
-);
+        }
 
 
+        if(
+            !selectedClasses.includes(
+                value
+            )
+        ){
 
-cb.checked=false;
+            selectedClasses.push(
+                value
+            );
+
+        }
+
+    }
+
+    else{
+
+        selectedClasses =
+            selectedClasses.filter(
+                function(c){
+
+                    return normalize(c) !==
+                           normalize(value);
+
+                }
+            );
+
+    }
 
 
-return;
-
+    updateSummary();
 
 }
 
 
+// =====================================================
+// CONFLICT
+// =====================================================
 
-selectedClasses.push(value);
+function isConflict(newClass){
+
+    const newData =
+        electives[newClass];
 
 
+    if(!newData){
+        return false;
+    }
+
+
+    for(
+        let i = 0;
+        i < selectedClasses.length;
+        i++
+    ){
+
+        const oldClass =
+            selectedClasses[i];
+
+
+        const oldData =
+            electives[oldClass];
+
+
+        if(!oldData){
+            continue;
+        }
+
+
+        if(
+            normalize(newData.day) ===
+            normalize(oldData.day)
+        ){
+
+            const n =
+                parseTime(newData.time);
+
+
+            const o =
+                parseTime(oldData.time);
+
+
+            if(
+                n &&
+                o &&
+                n.start < o.end &&
+                n.end > o.start
+            ){
+
+                return true;
+
+            }
+
+        }
+
+    }
+
+
+    return false;
 
 }
 
-else{
 
-
-selectedClasses =
-selectedClasses.filter(
-x=>x!==value
-);
-
-
-}
-
-
-
-updateSummary();
-
-
-}
-
-
-
-
-
-
-
-
+// =====================================================
+// SUMMARY
+// =====================================================
 
 function updateSummary(){
 
+    const summary =
+        document.getElementById(
+            "summary"
+        );
 
-let total=0;
+
+    if(
+        selectedClasses.length === 0
+    ){
+
+        summary.innerHTML =
+            "No class selected.";
+
+        return;
+
+    }
 
 
-selectedClasses.forEach(c=>{
+    let total = 0;
 
 
-if(electives[c]){
+    let html =
 
-total+=electives[c].price;
+    `<div class="summary-title">
+    Selected Classes
+    </div>`;
+
+
+    selectedClasses
+    .forEach(function(className){
+
+        const e =
+            electives[className];
+
+
+        if(!e){
+            return;
+        }
+
+
+        total +=
+            Number(e.price) || 0;
+
+
+        html +=
+
+        `<div class="summary-item">
+
+        <b>${escapeHtml(e.name)}</b>
+
+        <br>
+
+        📅 ${escapeHtml(e.day)}
+        &nbsp; | &nbsp;
+        ⏰ ${escapeHtml(e.time)}
+
+        <br>
+
+        💰 Rp ${formatNumber(e.price)}
+
+        ${e.vendor
+            ? `<br>👤 Vendor / Coach:
+               ${escapeHtml(e.vendor)}`
+            : ""
+        }
+
+        </div>`;
+
+    });
+
+
+    html +=
+
+    `<div class="summary-total">
+
+    Total:
+    Rp ${formatNumber(total)}
+
+    </div>`;
+
+
+    summary.innerHTML = html;
 
 }
 
 
-});
-
-
-
-document.getElementById("summary").innerHTML=
-
-`
-
-<b>
-Selected:
-${selectedClasses.length}
-</b>
-
-<br>
-
-<b>
-Total:
-Rp ${total.toLocaleString()}
-</b>
-
-`;
-
-
-
-}
-
-
-
-
-
-
-
-
+// =====================================================
+// SUBMIT
+// =====================================================
 
 async function submitForm(){
 
+    if(
+        selectedClasses.length === 0
+    ){
+
+        alert(
+            "Please select at least 1 elective class."
+        );
+
+        return;
+
+    }
 
 
-if(selectedClasses.length==0){
+    const button =
+        document.getElementById(
+            "submitButton"
+        );
 
 
-alert(
-"Please select elective class"
-);
+    button.disabled = true;
+
+    button.innerText =
+        "Submitting...";
 
 
-return;
+    let total = 0;
+
+
+    selectedClasses
+    .forEach(function(c){
+
+        if(electives[c]){
+
+            total +=
+                Number(
+                    electives[c].price
+                ) || 0;
+
+        }
+
+    });
+
+
+    const selectedBeforeSubmit =
+        [...selectedClasses];
+
+
+    const data = {
+
+        action:"registration",
+
+        name:currentStudent,
+
+        email:currentEmail,
+
+        classes:selectedBeforeSubmit,
+
+        total:total
+
+    };
+
+
+    try{
+
+        const response =
+            await fetch(
+                SCRIPT_URL,
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                        "text/plain;charset=utf-8"
+                    },
+
+                    body:
+                        JSON.stringify(data)
+
+                }
+            );
+
+
+        const text =
+            await response.text();
+
+
+        let result;
+
+
+        try{
+
+            result =
+                JSON.parse(text);
+
+        }
+
+        catch(err){
+
+            throw new Error(
+                "Server tidak mengembalikan JSON."
+            );
+
+        }
+
+
+        if(!result.ok){
+
+            throw new Error(
+                result.error ||
+                "Registration failed."
+            );
+
+        }
+
+
+        registrationId =
+            result.registrationId;
+
+
+        // =============================================
+        // TAMPILKAN RANGKUMAN
+        // =============================================
+
+        showRegistrationSummary(
+            result
+        );
+
+
+        // =============================================
+        // UPDATE DATA LOCAL
+        // TANPA REFRESH DARI SERVER
+        // =============================================
+
+        selectedBeforeSubmit
+        .forEach(function(className){
+
+            if(electives[className]){
+
+                electives[className]
+                    .remaining =
+                    Math.max(
+                        0,
+                        Number(
+                            electives[className]
+                            .remaining
+                        ) - 1
+                    );
+
+            }
+
+
+            if(
+                !registeredClasses.includes(
+                    className
+                )
+            ){
+
+                registeredClasses.push(
+                    className
+                );
+
+            }
+
+        });
+
+
+        // =============================================
+        // UNCHECK + DISABLE CLASS YANG BARU DIPILIH
+        // =============================================
+
+        selectedClasses = [];
+
+        renderElectives();
+
+        updateSummary();
+
+
+        // =============================================
+        // PAYMENT
+        // =============================================
+
+        if(
+            Number(result.total) > 0
+        ){
+
+            document
+            .getElementById(
+                "paymentSection"
+            )
+            .classList
+            .remove("hidden");
+
+
+            document
+            .getElementById(
+                "totalBayar"
+            )
+            .innerText =
+                "Rp " +
+                formatNumber(
+                    result.total
+                );
+
+        }
+
+        else{
+
+            document
+            .getElementById(
+                "paymentSection"
+            )
+            .classList
+            .add("hidden");
+
+
+            document
+            .getElementById(
+                "paymentInfo"
+            )
+            .innerHTML =
+
+            `<div class="info">
+
+            <b>✅ Registration Completed</b>
+
+            <br><br>
+
+            No payment is required because
+            the total price is Rp 0.
+
+            </div>`;
+
+        }
+
+
+    }
+
+    catch(error){
+
+        alert(
+            "Registration failed:\n\n" +
+            error.message
+        );
+
+
+    }
+
+    finally{
+
+        button.disabled = false;
+
+        button.innerText =
+            "Submit Selection";
+
+    }
 
 }
 
 
+// =====================================================
+// SHOW REGISTRATION SUMMARY
+// =====================================================
 
-let total=0;
+function showRegistrationSummary(
+    result
+){
 
-
-
-selectedClasses.forEach(c=>{
-
-total+=electives[c].price;
-
-});
-
-
-
-
-let data={
+    const box =
+        document.getElementById(
+            "resultSummary"
+        );
 
 
-action:"registration",
+    let html =
 
-name:currentStudent,
+    `<div class="summary">
 
-email:currentEmail,
+    <div class="summary-title">
+    ✅ Registration Summary
+    </div>
 
-classes:selectedClasses.join(", "),
+    <b>Student:</b>
+    ${escapeHtml(result.name)}
 
-total:total
+    <br>
 
+    <b>Email:</b>
+    ${escapeHtml(result.email)}
 
-};
-
-
-
-try{
-
-
-let response =
-await fetch(
-
-SCRIPT_URL,
-
-{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":"text/plain;charset=utf-8"
-
-},
-
-body:JSON.stringify(data)
-
-}
-
-);
+    <br><br>`;
 
 
+    result.details
+    .forEach(function(e){
 
-let result =
-await response.text();
+        html +=
 
+        `<div class="summary-item">
 
+        <b>
+        ${escapeHtml(e.name)}
+        </b>
 
-console.log(result);
+        <br>
 
+        📅 ${escapeHtml(e.day)}
 
+        <br>
 
-alert(
-"Selection Saved"
-);
+        ⏰ ${escapeHtml(e.time)}
 
+        <br>
 
+        💰 Rp ${formatNumber(e.price)}
 
-document
-.getElementById("paymentSection")
-.classList
-.remove("hidden");
+        ${e.vendor
+            ? `<br>
+            👤 Vendor / Coach:
+            ${escapeHtml(e.vendor)}`
+            : ""
+        }
 
+        </div>`;
 
-
-document
-.getElementById("totalBayar")
-.innerHTML=
-
-"Rp "+total.toLocaleString();
-
-
-
-}
-
-catch(error){
-
-
-alert(
-"Submit failed"
-);
+    });
 
 
-console.log(error);
+    html +=
 
+    `<div class="summary-total">
+
+    Total:
+    Rp ${formatNumber(result.total)}
+
+    </div>
+
+    </div>`;
+
+
+    box.innerHTML = html;
+
+
+    box.scrollIntoView({
+        behavior:"smooth",
+        block:"nearest"
+    });
 
 }
 
 
-}
-
-
-
-
-
-
+// =====================================================
+// FILE SELECT
+// =====================================================
 
 document
 .getElementById("bukti")
-.onchange=function(){
+.addEventListener(
+    "change",
+    function(){
+
+        if(
+            this.files &&
+            this.files.length > 0
+        ){
+
+            document
+            .getElementById(
+                "fileName"
+            )
+            .innerHTML =
+
+            "Selected: <b>" +
+            escapeHtml(
+                this.files[0].name
+            ) +
+            "</b>";
+
+        }
+
+    }
+);
 
 
-document
-.getElementById("fileName")
-.innerHTML=
-
-"Selected: <b>"+
-this.files[0].name+
-"</b>";
-
-
-};
-
-
-
-
-
-
-
-
+// =====================================================
+// UPLOAD PAYMENT
+// =====================================================
 
 function uploadBukti(){
 
-
-let file =
-document.getElementById("bukti");
-
-
-
-if(file.files.length==0){
+    const input =
+        document.getElementById(
+            "bukti"
+        );
 
 
-alert(
-"Please upload proof of transfer"
-);
+    if(
+        !input.files ||
+        input.files.length === 0
+    ){
+
+        alert(
+            "Please upload proof of transfer."
+        );
+
+        return;
+
+    }
 
 
-return;
+    const file =
+        input.files[0];
+
+
+    const button =
+        document.getElementById(
+            "paymentButton"
+        );
+
+
+    button.disabled = true;
+
+    button.innerText =
+        "Uploading...";
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = async function(){
+
+        const base64 =
+            reader.result
+            .split(",")[1];
+
+
+        const data = {
+
+            action:"payment",
+
+            registrationId:
+                registrationId,
+
+            name:
+                currentStudent,
+
+            email:
+                currentEmail,
+
+            fileName:
+                file.name,
+
+            fileType:
+                file.type,
+
+            fileData:
+                base64
+
+        };
+
+
+        try{
+
+            const response =
+                await fetch(
+                    SCRIPT_URL,
+                    {
+
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                            "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify(data)
+
+                    }
+                );
+
+
+            const text =
+                await response.text();
+
+
+            const result =
+                JSON.parse(text);
+
+
+            if(!result.ok){
+
+                throw new Error(
+                    result.error
+                );
+
+            }
+
+
+            document
+            .getElementById(
+                "paymentInfo"
+            )
+            .innerHTML =
+
+            `<div class="info">
+
+            <b>
+            ✅ Payment proof uploaded successfully
+            </b>
+
+            <br><br>
+
+            Admin will verified, Thank you.
+
+            </div>`;
+
+
+            button.disabled = true;
+
+            button.innerText =
+                "Payment Submitted";
+
+
+        }
+
+        catch(error){
+
+            alert(
+                "Payment upload failed:\n\n" +
+                error.message
+            );
+
+
+            button.disabled = false;
+
+            button.innerText =
+                "Submit Payment";
+
+        }
+
+    };
+
+
+    reader.readAsDataURL(file);
 
 }
 
 
+// =====================================================
+// HELPERS
+// =====================================================
 
-let reader =
-new FileReader();
+function normalize(value){
 
-
-
-reader.onload=function(){
-
-
-
-let data={
-
-
-action:"payment",
-
-name:currentStudent,
-
-email:currentEmail,
-
-fileName:file.files[0].name,
-
-fileType:file.files[0].type,
-
-fileData:
-reader.result.split(",")[1]
-
-
-};
-
-
-
-fetch(
-
-SCRIPT_URL,
-
-{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":"text/plain;charset=utf-8"
-
-},
-
-body:JSON.stringify(data)
+    return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g," ");
 
 }
 
-);
 
+function formatNumber(value){
 
-
-document.getElementById("mainContainer").innerHTML=
-
-`
-
-<h2 class="success">
-
-✅ Payment Submitted Successfully
-
-</h2>
-
-
-<p style="text-align:center">
-
-HIS Admin will verify your payment. Thank You.
-
-</p>
-
-
-`;
-
-
-
-};
-
-
-
-reader.readAsDataURL(
-file.files[0]
-);
-
-
+    return Number(value || 0)
+        .toLocaleString("id-ID");
 
 }
 
+
+function parseTime(time){
+
+    const parts =
+        String(time)
+        .replace(/\s/g,"")
+        .split("-");
+
+
+    if(parts.length !== 2){
+        return null;
+    }
+
+
+    function minutes(v){
+
+        const p =
+            v.split(":");
+
+
+        if(p.length !== 2){
+            return null;
+        }
+
+
+        return (
+            Number(p[0]) * 60 +
+            Number(p[1])
+        );
+
+    }
+
+
+    const start =
+        minutes(parts[0]);
+
+
+    const end =
+        minutes(parts[1]);
+
+
+    if(
+        start === null ||
+        end === null
+    ){
+
+        return null;
+
+    }
+
+
+    return {
+        start:start,
+        end:end
+    };
+
+}
+
+
+function escapeHtml(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+    return escapeHtml(value);
+
+}
 
 </script>
-
 
 </body>
 
